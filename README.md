@@ -1,2 +1,2 @@
 # Антивирусные  скрипты для  linux
-antibotnet.sh
+antibotnet.sh - Скрипт удаления Mirai
