@@ -65,4 +65,4 @@ rm -rf /tmp/.font-unix
 rm -f /var/spool/anacron/*
 rm -f /dev/shm/*ad*
 rm -rf /var/tmp/systemd-private-*
-find /tmp -type f -name '*\(deleted\)*' -exec rm -f {} + 2>/dev/null
+rm -f /tmp/*(deleted)*
