@@ -30,7 +30,7 @@ malicious_paths=(
   "/tmp/bizy.arm8" "/tmp/bizy.mips" "/tmp/bizy.mpsl" "/tmp/bizy.mipss"
   "/tmp/bizy.mpsls" "/tmp/bizy.riscv" "/tmp/bizy.x86" "/tmp/bizy.x64"
   "/tmp/bizy.mips64" "/tmp/bizy.mpsl64" "/tmp/bizy.mips64s" "/tmp/bizy.mpsl64s"
-  "/tmp/bizy.s930x" "/tmp/.main"
+  "/tmp/bizy.s930x" "/tmp/.main","/tmp/dumped_bizy.arm6"
 )
 
 cron_files=(
