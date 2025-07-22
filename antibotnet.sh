@@ -21,7 +21,7 @@ malicious_paths=(
   "/tmp/fghe3tj.arm7" "/tmp/fghe3tj.arm5" "/tmp/fghe3tj.arm6" "/tmp/fghe3tj.sh4"
   "/tmp/PwnKit.sh" "/tmp/fghe3tj.arm" "/tmp/ppc64_1" "/tmp/mipsel_1"
   "/tmp/mips_1" "/tmp/ppc64le_1" "/tmp/i686_1" "/tmp/arm926t_1"
-  "/tmp/daemon" "/tmp/daemon_bak" "/tmp/uam.pl"
+  "/tmp/daemon" "/tmp/daemon_bak" "/tmp/uam.pl","/tmp/morte.spc"
 )
 
 cron_files=(
