@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "#############################################"
 echo "#                                           #"
-echo "#      Antibotnet Script  v1.3              #"
+echo "#      Antibotnet Script  v1.3- BUG-FIX     #"
 echo "#      Created by @safeonline-project       #"
 echo "#                                           #"
 echo "#############################################"
