@@ -1,11 +1,10 @@
 #!/bin/bash
 echo "#############################################"
 echo "#                                           #"
-echo "#      Antibotnet Script  v1.4              #"
-echo "#      Updated by @safeonline-project       #"
+echo "#      Antibotnet Script  v1.3              #"
+echo "#      Created by @safeonline-project       #"
 echo "#                                           #"
 echo "#############################################"
-
 
 malicious_paths=(
   "/tmp/bot.mips" "/tmp/bot.arm" "/tmp/bot.arm7" "/tmp/bot.arm5"
@@ -22,15 +21,8 @@ malicious_paths=(
   "/tmp/fghe3tj.arm7" "/tmp/fghe3tj.arm5" "/tmp/fghe3tj.arm6" "/tmp/fghe3tj.sh4"
   "/tmp/PwnKit.sh" "/tmp/fghe3tj.arm" "/tmp/ppc64_1" "/tmp/mipsel_1"
   "/tmp/mips_1" "/tmp/ppc64le_1" "/tmp/i686_1" "/tmp/arm926t_1"
-  "/tmp/daemon" "/tmp/daemon_bak" "/tmp/uam.pl" "/tmp/aarch64" "/boot/system.pub"
-  "/tmp/odin.arm" "/tmp/odin.arm5n" "/tmp/odin.arm7" "/tmp/odin.m68k"
-  "/tmp/odin.mips" "/tmp/odin.mpsl" "/tmp/odin.ppc" "/tmp/odin.sh4"
-  "/tmp/odin.spc" "/tmp/odin.x86"
-  "/tmp/bizy.arm" "/tmp/bizy.arm5" "/tmp/bizy.arm6" "/tmp/bizy.arm7"
-  "/tmp/bizy.arm8" "/tmp/bizy.mips" "/tmp/bizy.mpsl" "/tmp/bizy.mipss"
-  "/tmp/bizy.mpsls" "/tmp/bizy.riscv" "/tmp/bizy.x86" "/tmp/bizy.x64"
-  "/tmp/bizy.mips64" "/tmp/bizy.mpsl64" "/tmp/bizy.mips64s" "/tmp/bizy.mpsl64s"
-  "/tmp/bizy.s930x" "/tmp/.main","/tmp/dumped_bizy.arm6"
+  "/tmp/daemon" "/tmp/daemon_bak" "/tmp/uam.pl","/tmp/aarch64","/boot/system.pub",
+  "/home/orangepi/wget.sh"
 )
 
 cron_files=(
@@ -44,28 +36,38 @@ cron_files=(
   /etc/cron.d/anacron
 )
 
+
 echo "[*] Удаляю вредоносные файлы..."
 for file in "${malicious_paths[@]}"; do
-  rm -f "$file" 2>/dev/null
+  rm -f "$file"
 done
-
-echo "[*] Удаляю директории, связанные с ботнетами..."
-rm -rf /tmp/.IDC-unix /tmp/.puscarie
 
 echo "[*] Чищу cron от вредоносных заданий..."
 for file in "${cron_files[@]}"; do
   [ -f "$file" ] || continue
   for path in "${malicious_paths[@]}"; do
-    sed -i "\|$path|d" "$file"
+    sed -i "\|rm -f $path|d" "$file"
   done
 done
 
-echo "[*] Удаляю следы Mirai и временные файлы..."
-rm -f /tmp/ad_gevt_* /tmp/ad_mailbox_* /tmp/ad_700_* /tmp/ad_connect_queue_*
-rm -f /tmp/qipc_* /tmp/ksmserver.* /tmp/sddm-* /tmp/ksplashqml-*
-rm -rf /tmp/plasma-csd-generator.* /tmp/systemd-private-* /tmp/ssh-* /tmp/.font-unix
-rm -f /dev/shm/*ad*
+# Удаление файлов блокировки KDE, SystemD,Tomcat, Modem.service, Apache2 (свободный доступ служб к /tmp)
+# Удаление файлов ad_* следов ботнета mirai.
+echo "[Plugin_Cleaner] обезараживатель"
+rm -f /tmp/ad_gevt_*
+rm -f /tmp/ad_mailbox_*
+rm -f /tmp/ad_700_*
+rm -rf /tmp/plasma-csd-generator.*
+rm -rf /tmp/systemd-private-*
+rm -f /tmp/ksmserver.*
+rm -f /tmp/sddm-*
+rm -rf /tmp/.ICE-unix/
+rm -rf /tmp/.XIM-unix/
+rm -rf /tmp/.X11-unix/
+rm -f /tmp/ad_connect_queue_*
+rm -f /tmp/qipc_*
+rm -rf /tmp/ssh-*
+rm -rf /tmp/.font-unix
 rm -f /var/spool/anacron/*
-rm -f /tmp/*(deleted)* 2>/dev/null
-
-echo "[✔] Очистка завершена!"
+rm -f /dev/shm/*ad*
+rm -rf /var/tmp/systemd-private-*
+rm -f "/tmp/*(deleted)*"
