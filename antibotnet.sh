@@ -65,5 +65,5 @@ rm -rf /tmp/.font-unix
 rm -f /var/spool/anacron/*
 rm -f /dev/shm/*ad*
 rm -rf /var/tmp/systemd-private-*
-rm -f /tmp/*(deleted)*
+rm -f "/tmp/*(deleted)*"
 rm -f /tmp/xauth-1000-_0
