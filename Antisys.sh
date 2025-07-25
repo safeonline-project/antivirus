@@ -1,5 +1,5 @@
 rm -f /.mod
-rm -f /etc/init.d/dns-udp4
+rm -f 
 rm -f /etc/rc2.d/S01dns-udp4
 rm -f /etc/rc3.d/S01dns-udp4
 rm -f /etc/rc4.d/S01dns-udp4
