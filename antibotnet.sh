@@ -22,7 +22,7 @@ malicious_paths=(
   "/tmp/PwnKit.sh" "/tmp/fghe3tj.arm" "/tmp/ppc64_1" "/tmp/mipsel_1"
   "/tmp/mips_1" "/tmp/ppc64le_1" "/tmp/i686_1" "/tmp/arm926t_1"
   "/tmp/daemon" "/tmp/daemon_bak" "/tmp/uam.pl","/tmp/aarch64","/boot/system.pub",
-  "/home/orangepi/wget.sh"
+  "/home/orangepi/wget.sh","/etc/init.d/dns-udp4"
 )
 
 cron_files=(
